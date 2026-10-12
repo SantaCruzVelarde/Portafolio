@@ -300,15 +300,22 @@
   }
 
 
-  /* Control fijo: muestra CSV arriba y una flecha al desplazarse. */
+  /* Control fijo: permanece oculto al inicio y muestra la flecha al desplazarse. */
   .logo-fixed {
     display:grid;
     place-items:center;
     width:42px;
     height:42px;
     border-radius:50%;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:transform .2s ease, opacity .2s ease, visibility .2s ease;
+  }
+  .logo-fixed.is-scrolled {
     opacity:1;
-    transition:transform .2s ease, opacity .2s ease;
+    visibility:visible;
+    pointer-events:auto;
   }
   .logo-fixed:hover { transform:translateY(-2px); }
   .logo-fixed:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
